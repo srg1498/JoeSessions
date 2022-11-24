@@ -1,0 +1,25 @@
+-> Algorithms:
+1) Sorting
+   - bubble sort
+   - insertion sort
+   - selection sort
+   - merge sort
+   - quick sort
+2) Searching
+   - linear search
+   - Binary search
+   - ternary search
+   - meet in the middle
+3) Recursion 
+4) Greedy
+5) Dynamic programming
+6) Graphs algos
+7) String algos
+
+
+-> Advance Data structures:
+1) Sparse tables
+2) sqrt decomposition
+3) segment trees
+4) fenwick trees
+5) Disjoint Union

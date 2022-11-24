@@ -1,0 +1,68 @@
+p1
+para cons
+2 3 5
+ptr 2
+
+p2
+2 3 5
+ptr 2
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+class Point{
+    public:
+    int x, y, z;
+    int* ptr;
+    
+    Point(){
+        cout<<"default con\n";
+        x = y = z = 0;
+        ptr = &(this->x);
+    }
+    
+    Point(int x, int y, int z){
+        cout<<"para cons\n";
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        ptr = &(this->x);
+    }
+    
+    // explicit copy constructor
+    Point(const Point &p){
+        this->x = p.x;
+        this->y = p.y;
+        this->z = p.z;
+        this->ptr = &(this->x);
+    }
+    
+    void print(){
+        cout<<x<<" "<<y<<" "<<z<<"\n";
+        cout<<"ptr "<<*ptr<<"\n";
+    }
+};
+
+int main(){
+    
+    Point p1 = Point(2, 3, 5);
+    //p1.print();
+    
+    Point p2 = p1;   // default/implicit copy constructor
+    //p2.print();
+    
+    p2.x = 9;
+    p1.print();
+    p2.print();
+    
+    
+    return 0;
+}
+
+
+default copy constructor -> directly copying the values -> facing issues -> shallow copy
+explicit copy cons -> manually set the pointer as per the requirement -> deep copy
+
+whenever we deal with pointers in data members, need to use explicit copy cons

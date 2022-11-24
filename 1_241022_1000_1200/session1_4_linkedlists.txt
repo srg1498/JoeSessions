@@ -1,0 +1,124 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+    
+    Node(int data):data(data), next(NULL){}
+};
+
+class LinkedList{
+    public:
+    Node* head;
+    
+    LinkedList():head(NULL){}
+    
+    void push_back(int data){
+        Node* node = new Node(data);
+        
+        if(head == NULL){
+            head = node;
+            return;
+        }
+        
+        Node* current = head;
+        while(current->next != NULL){
+            current = current->next;
+        }
+        current->next = node;
+    }
+    
+    void print(){
+        Node* current = head;
+        while(current != NULL){
+            cout<<current->data<<" ";
+            current = current->next;
+        }
+        cout<<"\n";
+    }
+};
+
+int main(){
+    LinkedList l1;
+    for(int i=1;i<=8;i++){
+        l1.push_back(i);
+    }
+    l1.print();    
+    return 0;
+}
+
+
+
+time complexity analysis:-
+
+only head:-
+1) push_back() - o(n)
+2) push_front() - o(1)
+3) delete_back() - o(n)
+4) delete_front() - o(1)
+
+
+both head and tail
+1) push_back() - o(1)
+2) push_front() - o(1)
+3) delete_back() - o(n)    // in case of dll it will take o(1)
+4) delete_front() - o(1)
+
+
+
+
+singly linked list -> only head, only next
+
+
+linked list - node1
+            - node2
+			
+			
+list = 1
+list = 1->2
+
+list = 4->1->2->3
+
+adavntage:-
+1) no memory wastage
+
+disadvantage:-
+1) no random access
+2) storing some additional memory
+
+
+
+
+doubly linked list
+
+node - next, prev node's address
+
+
+
+
+problems:-
+
+1) given one singly linked list, what is the middle element of linked list  (11 elements - 6th one, 10 elements - 5th one)
+   
+   * brute force approach:-
+   - traversing list and calculate size
+   - find n/2 
+   - again traverse till n/2 size
+   - time complexity - o(n) - o(2*n) 
+
+   * slow fast pointers approach 
+   - keep two pointers 
+     one slow and one fast 
+     slow speed = 1
+	 fast speed = 2
+
+     1->2->3->4->5->6->7->8->9->10->11	
+     initially, slow = 1, fast = 1	 
+     slow = 2, fast = 3
+	 slow = 3, fast = 5
+	 slow = 4, fast = 7
+	 slow = 5, fast = 9
+	 slow = 6, fast = 11

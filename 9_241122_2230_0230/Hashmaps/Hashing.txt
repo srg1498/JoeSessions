@@ -1,0 +1,130 @@
+Hashing:
+   - Main property of hash function: 
+     Mapping elements to an integer in a way that if e1=e2, then hash(e1) = hash(e2)
+	 usecase: "bat" -> hash("bat") -> 5 -> insert "bat" at index 5 in the array
+	 
+   - bad hash functions
+     eg. int hash(string s){
+	         return 5;
+		 }
+     hash("bat") -> 5
+	 hash("bat") -> 5
+	 hash("cat") -> 5
+	 
+	 Though hash function is correct but it is useless
+	 
+   - We are given one string. We need to store frequency of each character.
+     "buffalo" -> b:1, u:1, f:2, a:1, l:1, o:1
+	 
+	 vector<int> frequences(26, 0)
+	 a - 0
+	 b - 1
+	 c - 2
+	 ...
+	 z - 25
+	 
+	 [hash(ch) -> ch-97]
+	 hash('a') -> a-97 = 0
+     hash('d') -> d-97 = 3	 
+	 
+	 There is one to one mapping using this hash function
+	 There will be no two characters which will be having same hash values (no collisions)	 
+	 
+	 int hash(char ch){
+	     return ch-97;
+	 }
+	 
+	 for(int i=0;i<word.size();i++){
+	     char ch = word[i];
+		 frequences[ch-97]++;
+		 //frequences[hash(ch)]++;
+	 }
+	 
+	 for(int i=0;i<26;i++){
+	     if(frequences[i] == 0){
+		     continue;
+		 }
+		 char ch = 97 + i;
+		 cout<<ch<<":"<<frequences[i];
+	 }
+	 
+	 
+   - Frequency of word in vector of words:
+     words = {"bat", "bat", "bb", "c", "bc", "d"}
+	 "bat" : 2
+	 "bb" : 1
+	 "c" : 1
+	 "bc" : 1
+	 "d" : 1
+	 
+	 
+	 a-0
+	 b-1
+	 c-2
+	 d-3
+	 ...
+	 z-25
+	 
+	 i) frequencies[1000] (0-999)
+	 
+	    hash(string s){
+	      // add all integers 
+          // sum%1000		  
+	    }
+		
+		"bat" -> 1 + 0 + 19 -> 20
+		frequencies[20]++ ("bat" -> 20)
+		
+		"bb" -> 1 + 1 -> 2
+		frequencies[2]++ ("bb" -> 2)
+		
+		"c" -> 2
+		frequencies[2]++ ("c" -> 2)
+		
+		"bc" -> 1 + 2 = 3
+		frequencies[3]++ ("bc" -> 3)
+		
+		"d" -> 3
+		frequencies[3]++ ("d" -> 3)
+		
+		here collisions are there
+		
+	  
+	  ii) Rolling hash functions
+	      
+		  base - p
+		  hash(s) = s[0]*p^0 + s[1]*p^1 + s[2]*p^2 + ....
+		  
+		  eg. p = 27
+		  hash("bat") = 1*1 + 0*27 + 19*27*27
+		              = 13852%1000
+					  = 852
+					  
+		  hash("bb") = 1*1 + 1*27
+		             = 28
+					 
+		  hash("c") = 2*1
+                    = 2
+
+          hash("bc") = 1*1 + 2*27
+                     = 1 + 54
+                     = 55
+          
+          hash("d") = 3*1
+                    = 3
+
+
+          We have decreased the collisons on sum values.
+          But if we take mod with 1000, then collisions can happen
+          
+		  Suppose there are 5000 words.
+		  Now it can happen that from first 1000 words, there hash value is different (0-999)
+		  But if we take
+		  1001th word, hash value of this will be (0-999), which means some collision
+		  
+		  
+	- Methods to decrease collisions while dealing with hash functions:
+	  1) Try to use prime numbers as the bucket size
+	  2) Always use rolling hash functions in case of strings, use base p as prime number
+
+       		  

@@ -1,0 +1,107 @@
+Plan:-
+
+Data structures:-
+1) vectors
+2) linked list
+3) stack
+4) trees
+   - binary trees
+   - binary search trees
+   - self balancing trees (avl or red-black tree)
+
+
+6) tries   - important
+7) binary heaps - important 
+8) unordered map (hash maps/tables) - important
+   - hashing
+   - collisions
+   - internal implementation (vector, list, pair)   
+9) queue
+
+advance data structure:-
+1) sparse tables
+2) sqrt decomposition
+3) segment trees
+4) fenwick trees
+
+
+
+Trees
+- node can point to any number of nodes
+- root (topmost node)
+- parent and children concept
+- internal nodes (it has atleast one child) vs leaf nodes (end nodes - they do not have any children)
+- based on max no of nodes, we classify trees
+  eg. binary tree, ternary tree, etc.
+- height of tree (max distance of all leaf nodes from root)
+- levels of tree
+- distance of node from root node
+- lca (lowest common ancestor)
+
+- practical implementations
+  1) hash maps - uses trees internally in java
+  2) tries - word search
+  3) heaps or priority queue
+  
+  4) git or bitbucket - trees and pointers
+  
+
+Binary trees
+- every node can have max 2 children
+- complete binary trees
+  perfect binary trees
+  full binary tree
+  degenerate tree
+
+- perfect binary tree
+  1) if we have k levels in this tree, what will be the total no of nodes
+     = 2^0 + 2^1 + 2^2 + 2^3 + ... + 2^(k-1)
+	 = 1(2^k - 1)/(2-1)
+	 = 2^k - 1
+	 
+	 if level is k:-
+	   total levels in tree = k
+	   total nodes = 2^k -1
+	   height of tree = k-1
+	   
+   2) if we have n nodes in this tree
+   
+      total nodes = n = 2^k -1
+	        k = log(n+1) to the base 2
+   
+      if nodes are n:-
+	    total nodes = n
+		total levels in tree = log(n+1)
+		height of tree = log(n+1) - 1
+		
+		
+		
+Traversals:-
+1) level order traversal
+   - traverse each level one by one
+   - for this we use queues and do it in iterative manner
+   - eg. q = {1} 
+         q = {2, 3}
+		 q = {3, 4, 5}
+		 q = {4, 5, 6, 7}
+		 q = {5, 6, 7, 8, 9}
+		 q = {6, 7, 8, 9, 10, 11}
+         q = {7, 8, 9, 10, 11, 13}
+		 q = {8, 9, 10, 11, 13, 14}
+		 
+		 1 2 3 4 5 6 7  	
+
+
+2) postorder traversal	
+   leftsubtree rightsubtree root	 
+   
+   8 9 4 10 11 5 2 13 6 14 7 3 1
+   
+   preorder traversal
+   root leftsubtree rightsubtree
+   
+   1 2 4 8 9 5 10 11 3 6 13 7 14
+   
+   inorder traversal
+   leftsubtree root rightsubtree
+   8 4 9 2 10 5 11 1 6 13 3 14 7   

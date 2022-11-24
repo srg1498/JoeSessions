@@ -1,0 +1,13 @@
+1) class introduction
+   - object declaration
+   - static keyword
+   - constructors (default and parametrized)
+   - copy constructor
+   - shallow vs deep copy
+   - shortcut way of defining constructors
+   - getters and setters concept
+   - public vs private
+
+2) doubly linked list
+   - concept
+   - implementation using class

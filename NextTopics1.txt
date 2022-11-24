@@ -1,0 +1,27 @@
+-> OOPs:
+1) Inheritance
+2) Polymorphism
+
+
+-> Advance concepts of c++:
+1) Smart pointers
+2) Function pointers
+3) Functors
+4) Lambda functions
+
+
+-> Number theory:
+1) Primes and divisors
+2) Modular arithmetic
+3) GCD
+4) Linear Diophantine
+5) Totient Function
+
+
+-> Other Techs:
+1) Git
+2) Javascript
+3) Nodejs
+4) Python
+5) Pyspark
+6) SQL

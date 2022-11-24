@@ -1,0 +1,23 @@
+1) scope of objects
+
+2) copy vs refernce
+
+3) friend concept 
+    - with normal function
+    - with member function of other class, 
+    - with class
+
+4) stack
+    - LIFO
+    - destructor calling
+    - CD example
+    - function calling
+    - program execution
+    - STL syntax
+    - custom stack using class and vector
+	
+5) templates
+    - function overloading and repitition problem
+    - function template
+    - implicit vs explicit
+    - class template

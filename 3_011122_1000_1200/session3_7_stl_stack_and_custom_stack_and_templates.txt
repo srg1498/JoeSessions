@@ -1,0 +1,95 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+template<class T>
+class CustomStack{
+    private:
+    vector<T> v;
+    public:
+    CustomStack(){
+        cout<<"new stack is created\n";
+    }
+    
+    void push(T ele){
+        v.push_back(ele);
+    }
+    
+    void pop(){
+        if(v.size() == 0){
+            cout<<"stack is empty, can not perform pop operation\n";
+        }
+        v.pop_back();
+    }
+    
+    T top(){
+        if(v.size() == 0){
+            cout<<"stack is empty, can not perform top operation\n";
+        }
+        return v[v.size()-1];
+    }
+    
+    bool empty(){
+        if(v.size() == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    int siz(){
+        return v.size();
+    }
+    
+    ~CustomStack(){
+        cout<<"destructor called\n";
+    }
+};
+
+// void add(int a, int b){
+//     cout<<a+b;
+// }
+
+// void add(float a, float b){
+//     cout<<a+b;
+// }
+
+// void add(long long a, long long b){
+//     cout<<a+b;
+// }
+
+// template<class T>
+// void add(T a, T b){
+//     cout<<a+b;
+// }
+
+int main(){
+    // stack<data_type> name;
+    // push, pop, size, top, empty
+    // stack<int> s; 
+    // s.push(10);
+    // s.push(13);
+    // cout<<s.size()<<"\n";
+    // cout<<s.top()<<"\n";
+    // s.pop();
+    // cout<<s.top()<<"\n";
+    // cout<<s.size()<<"\n";
+    // cout<<s.empty()<<"\n";
+    
+    CustomStack<float> s;
+    s.push(10.5);
+    s.push(13.5);
+    cout<<s.siz()<<"\n";
+    cout<<s.top()<<"\n";
+    s.pop();
+    cout<<s.top()<<"\n";
+    cout<<s.siz()<<"\n";
+    cout<<s.empty()<<"\n";
+    
+    // float a, b;
+    // a = 2.5;
+    // b = 3.5;
+    // add(a, b);      // implicit
+    // add<float>(a, b);  // explicit
+    return 0;
+}

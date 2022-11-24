@@ -1,0 +1,103 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+class Employee{
+   private: 
+   int salary;
+   
+   //data member storing address of object where it is created -> Employee*
+   
+   public:
+   string name;
+   int age;
+   
+   // static data members are also known as shared members or class members.
+   static int cntOfObjects;
+   
+   Employee(){
+       cout<<"default cons called\n";
+       this->name = "";
+       this->age = 0;
+       this->salary = 0;
+   }
+   
+   Employee(string name, int age, int salary){
+       cout<<"parametrized cons called\n";
+       this->name = name;
+       this->salary = salary;
+       this->age = age;
+       cout<<"inside cons "<<this<<"\n";
+       cntOfObjects++;
+   }
+   
+   // shortcut way of writing constructor
+   //   Employee(string name, int age, int salary):name(name), age(age), salary(salary){
+   //       cout<<"parametrized cons called\n";
+   //       cout<<"inside cons "<<this<<"\n";
+   //       cntOfObjects++;
+   //   }
+   
+   //   int getSalary(){
+   //       return salary;
+   //   }
+   
+   void getSalary(){
+       if(salary <= 1000){
+           cout<<"low salary\n";
+       }else{
+           cout<<"high salary\n";
+       }
+   }
+   
+   void setSalary(int salary){
+       if(salary < 0){
+           cout<<"can not set salary to negative\n";
+           return;
+       }
+       this->salary = salary;
+   }
+   
+   
+   string getName() const{
+       //this->name = "dhoni";
+       return this->name;
+   }
+   
+   ~Employee(){
+       cout<<"destructor called\n"; 
+   }
+};
+
+int Employee::cntOfObjects = 0;   // using SRO 
+
+int main(){
+    // declaration of objects
+    Employee e1 = Employee("sahil", 24, 1000);    // stack
+    cout<<"outside main "<<&e1<<"\n";
+    cout<<e1.name<<" "<<e1.age<<"\n";
+    
+    Employee* e2 = new Employee("joe", 20, 1000); // heap
+    cout<<"outside main "<<e2<<"\n";
+    cout<<e2->name<<" "<<e2->age<<"\n";
+    
+    
+    // static data member calling syntax
+    cout<<e1.cntOfObjects<<" "<<e2->cntOfObjects<<" "<<Employee::cntOfObjects<<"\n";
+    
+    // getters and setters
+    
+    //cout<<e1.getSalary()<<"\n";
+    //e1.setSalary(2000);
+    //cout<<e1.getSalary()<<"\n";
+    e1.getSalary();
+    e1.setSalary(-2000);
+    e1.getSalary();
+    
+    // use of const with member functions
+    cout<<e1.getName()<<"\n"; 
+    
+    delete e2; // delete deallocates memory in heap
+    
+    return 0;
+}

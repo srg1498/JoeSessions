@@ -1,0 +1,17 @@
+1) Vectors
+   - STL methods of vectors
+   - dynamic array concept and logic and also internal implementation
+   - custom implementation using classes
+   - amorized analysis
+
+2) operator overloading
+   - concept
+   - add operator
+   - subscript operator
+
+3) Linked lists
+   - concept
+   - class implementation
+   - time complexity analysis (considering head, and also head-tail both)
+   - advantage and disadvantage
+   - middle point of list using slow and fast pointer

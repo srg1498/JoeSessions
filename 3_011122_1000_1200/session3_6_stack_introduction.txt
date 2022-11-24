@@ -1,0 +1,83 @@
+stack :- LIFO (last in first out)
+
+1) destructor calling
+
+2) stand -> CD compact disk
+   step1: - insert 1st CD
+   step2: - insert 2nd CD
+   step3: - insert 3rd CD
+   step4: - remove top one
+   
+3) function calling
+
+operating system:-
+program is executed -> stack memory, heap memory, constant & global section
+                    -> stack frame - stores line of control, variables and other stuffs (segments or block scope etc.)
+					-> in terms of size, heap is the largest one
+process - program in execution is known as process
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+const float PI = 3.14
+int glb = 10;
+// class Complex{
+//     private:
+//     int real, img;
+    
+//     public:
+//     Complex(){
+//         cout<<"default cons called\n";
+//     }
+    
+//     Complex(int real, int img){
+//         cout<<"parametrized cons called for "<<real<<" "<<img<<"\n";
+//         this->real = real;
+//         this->img = img;
+//     }
+    
+//     void print(){
+//         cout<<real<<" "<<img<<"\n";
+//     }
+    
+//     ~Complex(){
+//         cout<<"destructor called for "<<real<<" "<<img<<"\n";
+//     }
+// };
+
+void func2(){
+    cout<<"inside func2\n";
+    int c = 10;
+    cout<<"func2 is finished now\n";
+}
+
+void func1(){
+    cout<<"inside func1\n";
+    int b = 10;
+    func2();
+    cout<<"func1 is finished now\n";
+}
+
+int main(){
+    // Complex c1 = Complex(2, 3);
+    // Complex c2 = Complex(4, 5);
+    // Complex c3 = Complex(5,7);
+    // c1.print();
+    // c2.print();
+    // c3.print();
+    int a = 10;
+    {   // block scope
+        int b = 10;
+        cout<<b<<"\n";
+        cout<<a<<"\n";
+    }
+    cout<<"inside main\n";
+    func1();
+    cout<<"main function finished now\n";
+    
+    return 0;
+}

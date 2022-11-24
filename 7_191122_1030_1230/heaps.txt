@@ -1,0 +1,110 @@
+Vectors
+Linked list
+doubly linked list
+stack
+queue
+binary trees
+binary search trees
+
+
+
+Ques:  You are allowed to do three operations in your data structure:
+       1) insert element
+	   2) delete element
+       3) min element in that data structure
+	   
+	   Vectors:-
+	   insert  - o(1)
+	   delete  - o(n)
+	   min - o(n)
+	   
+	   Sorted Vectors:-
+	   insert - o(n)
+	   delete - o(n)
+	   min - o(1)
+	   
+	   Linked list(head and tail):-
+	   insert - o(1)
+	   delete - o(n)
+	   min - o(n)
+	   
+	   Sorted linked list(head and tail):-
+	   insert - o(n)
+	   delete - o(n)
+	   min - o(1)
+	   
+	   stack:-
+	   insert - o(1)
+	   delete - o(n)
+	   min - o(n)
+	   
+	   balanced binary search trees:-
+	   insert - o(height) o(logn) 
+	   delete - o(height) o(logn)
+	   min - o(height) o(logn)
+	  
+            perfect balanced bst
+	        -> given levels = l (4) but indexing starts from 0 (0 1 2 3)
+	        -> height = h = l-1 = (3)
+	        -> nodes = 2^l - 1
+	   
+	           2^0 + 2^1 + 2^2 + 2^3 + .... + 2^(l-1)
+	           = 2^l - 1 (2^4 - 1 = 15)
+	   
+	   
+	        -> given nodes = n
+	           assume total levels in this tree = x (find out)
+	           => 2^x - 1 = n
+		       => x = log(n+1) base 2
+		          total levels = log(n+1) base 2
+                  height = log(n+1) base2  -  1
+                         ~ log(n)	
+
+
+
+Binary Heaps:-
+
+1) two types:
+   min heap and max heap
+
+2) insert - o(logn)
+   delete - o(logn)
+   min - o(1)
+
+3) Min binary heaps:-
+   - complete binary tree 
+   - root node will be the smallest node out of all the nodes in the tree 
+     and this rule is valid for all nodes   
+	 
+
+4) Facts:-
+   - i will start indexing from 1
+   - will be storing data in array/vector
+   - if node is at i,
+     left child - 2*i
+     right child - 2*i+1
+	 parent - floor of i/2 
+	 
+   - if there are n nodes in heap, height will be log(n)
+   
+   
+5) How to insert, update and delete in min heaps:-
+
+   -> insert any element:-
+      - insert element at last position
+	  - do check parent condition until reach root    (shift up operation)
+      - tc o(logn)
+
+   -> update any element:-
+      - given pos and val
+      - update val at given pos 
+      - heapify operation or shift down opeartion
+      - tc o(logn)
+
+   -> delete any element:-
+      - given any pos 
+      - swap pos and last elements	
+      - do size-1
+      - heapify operation or shift down opeartion
+      - tc o(logn)	  
+	  	  

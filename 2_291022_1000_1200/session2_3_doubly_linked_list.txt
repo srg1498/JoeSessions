@@ -1,0 +1,90 @@
+Class:-
+
+1) declaration of objects (2 ways)
+2) public, private
+3) static concept 
+4) getters and setters
+5) use of const with member functions
+6) constructor and destructor
+7) copy constructor
+8) deep vs shallow
+
+
+
+doubly linked list:-
+
+1) set next pointer of current node to new node
+2) set prev of new node to current
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+	Node* prev;
+    
+    Node(int data):data(data), next(NULL), prev(NULL){}
+};
+
+class LinkedList{
+    public:
+    Node* head;
+	Node* tail;
+    
+    LinkedList():head(NULL){}
+    
+    void push_back(int data){
+        Node* node = new Node(data);
+        
+        if(head == NULL){ // linked list is empty
+            head = node;
+			tail = node;
+            return;
+        }
+        
+        Node* current = head;
+        while(current->next != NULL){
+            current = current->next;
+        }
+        current->next = node;
+		node->prev = current;
+		
+		tail = node
+    }
+    
+    void print(){
+        Node* current = head;
+        while(current != NULL){
+            cout<<current->data<<" ";
+            current = current->next;
+        }
+        cout<<"\n";
+    }
+	
+	void printRev(){
+        Node* current = tail;
+        while(current != NULL){
+            cout<<current->data<<" ";
+            current = current->prev;
+        }
+        cout<<"\n";
+    }
+};
+
+int main(){
+    LinkedList l1;
+    for(int i=1;i<=8;i++){
+        l1.push_back(i);
+    }
+    l1.print();    
+    return 0;
+}
+
+
+Practical Implementations:-
+1) LRU(least recently used) Cache
+2) hash maps

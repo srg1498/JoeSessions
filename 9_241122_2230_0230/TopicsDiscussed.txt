@@ -1,0 +1,22 @@
+Topics Discussed :
+
+1) Tries:
+   - Problem discussion
+   - search, insert and delete in tries
+   - autocompletion
+   - implementaion
+   
+2) Hashing:
+   - Hash function property
+   - bad hash function
+   - character frequency count (one - one mapping)
+   - word frquency 
+   - rolling hash function
+   - methods to reduce collisions
+   
+3) Hashmaps:
+   - key value pair concept
+   - linear probing
+   - chaining/bucketing
+   - optimization
+   

@@ -1,0 +1,167 @@
+size capacity
+0 0
+for first element - 1  1   (doing copy operation)       
+for second element - 2  2  (doing copy operation)
+for third element - 3 4 (doing copy operation)
+for fourth element - 4, 4 
+for fifth element - 5, 8 (doing copy operation)
+...
+
+for ninth element - 9, 16 (doing copy operation)
+
+for 17th element - 17, 32
+
+
+
+vector<int> arr
+arr = {1}  (1)
+
+arr = {1, 2} (2)
+
+arr = {1, 2, 3} (4)
+
+arr = {1, 2, 3, 4} (4)
+
+arr = {1, 2, 3, 4, 5} (8)
+
+size = 8 and cap = 8
+for ninth cap = 16
+
+
+time complexity insert operation - amortized analysis
+
+
+
+inserting one element - 1 ope
+copy one element - 1 ope
+
+n elements
+
+1  -  1 ope
+2 - 2 ope (1 copy + 1 insert)
+3 - 3 ope (2 copy + 1 insert)
+4 - 1 ope (insert)
+5 - 5 ope
+6 - 1 ope
+7 - 1 ope
+8 - 1 ope
+9 - 9 ope
+
+
+1, 2, 4, 8, 16, 32, 64, 128...
+2, 3, 5, 9, 17, 33, 65
+
+num1 = 2th power + 1 -> (2*power + 1) operations
+num2 = otherwise -> 1 operation
+
+
+n elements - 
+
+               7 cases (num1) cases(num2)
+100 elements - log2(100) + 93
+
+             - (1 + 2 + 4 + 8 + 16 + 32 + 64)  +  93   (ideally 1+1 + 1+2 + 1+4 + 1+8 + 17 + 33 + 65 +...
+			 - 1(2^7 - 1)/(2-1)  + 93
+			 
+GP :-
+
+First term = a
+r = multiplication factor for generating next term
+a(r^n - 1)/(r-1)
+
+
+             num1       num2
+n elements - log2(n) +  n-log2(n)
+
+
+total operations = 1(2^log2(n) - 1)/(2-1) + n
+                 = (2n-1) + n
+				 = 3n-1 
+				 
+				 
+for n elements = 3n-1 operations
+
+amortized analysis = (3n-1)/n = o(1)
+
+
+
+
+arr = {1, 2, 3, 4, 5} size = 5, cap = 8;
+arr.pop_back()
+
+arr = {1, 2, 3, 4, 5} size = 4, cap = 8
+
+insert 6
+
+arr = {1, 2, 3, 4, 6} size = 5, cap = 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    // syntax of creating vectors - vector<datatype> vector_name
+    // syntax of creating vectors - vector<datatype> vector_name(n);
+    // v.size()
+    // v.capacity()
+    // v.push_back() - internally (if vector capacity is full, it will create new vector of size 2*n and add one more element.)
+    
+    // vector<int> arr;
+    // cout<<arr.size()<<" "<<arr.capacity()<<"\n";
+    // arr.push_back(1);
+    // cout<<arr.size()<<" "<<arr.capacity()<<"\n";
+    // arr.push_back(2);
+    // cout<<arr.size()<<" "<<arr.capacity()<<"\n";
+    // arr.push_back(3);
+    // cout<<arr.size()<<" "<<arr.capacity()<<"\n";
+    
+    // v.at(i)
+    
+    vector<int> arr;
+    arr.push_back(1);
+    arr.push_back(2);
+    arr.push_back(3);
+    arr.push_back(4);
+    arr.push_back(5);
+    cout<<arr.size()<<" "<<arr.capacity()<<"\n";
+    cout<<arr.at(6);
+    
+    
+    
+    
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

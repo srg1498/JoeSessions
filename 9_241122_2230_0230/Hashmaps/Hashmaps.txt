@@ -1,0 +1,80 @@
+Hashmaps <-> unordered_map:
+
+1) Key-value pairs
+   eg. "sahil" : 24
+       "sahil" -> 10 -> map[10] = <"sahil", 24>
+	   
+	   "joe" : 20
+	   "joe" -> 7 -> map[7] = <"joe", 20>
+	   
+   i) Maps the key to some integer i (using hash function)
+   ii) {key, value} pair is stored at i
+   
+   Collisons can happen:
+   
+   "josh" : 20
+   "josh" -> 7
+   
+   "sachin" : 40
+   "sachin" -> 10 map[10] = <"sahil", 24> <"sachin", 40>
+  
+  
+2) Linear probing
+   If element already present there, then check for next position and do this until not find empty block
+   
+   map size is 11 (0-10)
+   vector< pair<string, int> > mp
+   map = {}
+   map[10] = <"sahil", 24>
+   map[7] = <"joe", 20>
+   map[8] = <"josh", 20>
+   map[0] = <"sachin", 40>
+   
+   Suppose for all 10 words hash value is 7
+   map[7] -> map[8] -> map[9] -> map[10] -> map[0] -> .... -> map[6]
+   
+   It will lead to linear search only when collisions are there
+   
+   
+3) Chaining and Bucketing concept
+   
+   vector of list of pairs
+   map[11] -> vector< list< pair<string, int> > > mp(11)
+   
+   { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+   
+   
+   10: <sahil, 24> -> <sachin, 40>
+   7: <joe, 20> -> <josh, 20>
+   
+   Suppose right now my no of buckets is 11. It means hash value will be [0-10] (%11)
+   If one bucket size is more, then it will lead to linear searching
+   
+   
+   Do some optimizations on this Bucketing concept:
+   
+   i) Terms: 
+      bucket_count = no of buckets (eg. 11)
+	  size = no of keys inserted (eg. 4)
+	  load_factor = size / bucket_count = 4/11 = 0.39
+	  max_load_factor = by default i am setting it to 1.0
+	  
+   ii) If lf >= max_lf, then double the size of bucket_count (prime number concept)
+   
+       Eg. Initially bucket_count = 5 
+	       suppose hash values of 5 words without mod are 5, 10, 15, 20, 25
+		                                                  0, 0, 0, 0, 0
+														  
+		   size = 5
+		   lf = 5/5 = 1
+		   max_lf = 1.0
+		   
+		   Now,
+		   bucket_count = 2*5 = 10 = 11 (next prime number after 10)
+		   do rehasing
+		              without mod 5, 10, 15, 20, 25
+		                          5, 10, 4, 9, 3
+		   lf = 5/11 = 0.45
+		   
+		   now my bukcets has become smaller
+   

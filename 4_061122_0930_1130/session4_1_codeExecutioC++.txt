@@ -1,0 +1,41 @@
+1) * header file - library which has all class definition/declaration and other funtions
+     eg.  iostream - it will have logic of input stream, output stream, error stream, etc.
+     eg. math.h - logic for all math functions, etc.
+   
+   * preprocessor directive - they give instruction to compiler the replace lien with respective code
+     eg #include, #define, #ifndef, etc.
+	 
+   * macros - small name which we give to some expression or large variables
+     eg. #define ll long long
+
+
+2) how do we compile code
+   -> g++ -o run main.cpp -> run.exe file
+   
+   4 steps:-
+   i) handling of preprocessor directives
+      -> g++ -E main.cpp > main1.cpp
+   
+   ii) compiler converts the code in assembly language
+      -> g++ -S main1.cpp   (it gives output as main1.s)
+	  
+   iii) assembly code gets converted to object code
+      -> g++ -c main1.s     (it gives one object file)
+	  
+   iv) object code converted into executable file using loaders and linker
+      -> g++ -o main1.o run
+	  
+
+3) namespace 
+   - use of it
+   - why do we not use using namespace std
+   
+   
+4) interface vs implementation
+   - how to compile in this case using both cpp files
+     g++ -o run client.cpp employee.cpp
+   - never include .cpp, always include hpp 
+   - always compile cpp files, never hpp
+   
+   
+   

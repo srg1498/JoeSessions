@@ -1,0 +1,33 @@
+-> Basics of C++:
+1) How c++ code is compiled
+2) Macros
+3) Header files
+4) Interface vs implementation
+5) copy vs reference
+
+
+-> OOPs:
+1) Classes and objects
+2) Getters and setters concepts
+3) Constructors and destructors
+4) Copy constructors
+5) Const usecase
+6) Operator overloading
+7) Function overloading
+8) Templates
+9) Friend concept
+10) Scope of objects
+
+
+-> Basic Data structures:
+1) Vectors or Arrays
+2) Linked list (singly and doubly)
+3) Stack
+4) Queue
+5) Binary Trees
+6) Binary Search Trees
+7) Heaps
+8) Tries    
+9) Hash Maps
+
+

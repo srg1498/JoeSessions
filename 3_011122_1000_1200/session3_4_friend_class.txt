@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+// forward declaration
+
+class Calculator;
+
+class Complex{
+    private:
+    int real, img;
+    
+    public:
+    Complex(){
+        cout<<"default cons called\n";
+    }
+    
+    Complex(int real, int img){
+        cout<<"parametrized cons called for "<<real<<" "<<img<<"\n";
+        this->real = real;
+        this->img = img;
+    }
+    
+    Complex(const Complex &c){
+        cout<<"copy constructor called for "<<c.real<<" "<<c.img<<"\n";
+        real = c.real;
+        img = c.img;
+    }
+    
+    void print(){
+        cout<<real<<" "<<img<<"\n";
+    }
+    
+    ~Complex(){
+        cout<<"destructor called for "<<real<<" "<<img<<"\n";
+    }
+    
+    friend class Calculator;
+};
+
+class Calculator{
+    public:
+    void addReal(Complex &a, Complex &b){
+        cout<<a.real + b.real<<"\n";    
+    }
+    void addImg(Complex &a, Complex &b){
+        cout<<a.img + b.img<<"\n";
+    }
+    void print(Complex &a, Complex &b){
+        cout<<a.real<<" "<<a.img<<" "<<b.real<<" "<<b.img<<"\n";
+    }
+};
+
+int main(){
+    // c1 and c2 are constructed in main function scope, so as soon as main will end, c1 and c2 will get destructed
+    Complex c1 = Complex(2, 3);
+    Complex c2 = Complex(4, 5);
+    c1.print();
+    c2.print();
+    Calculator obj;
+    obj.addReal(c1, c2);
+    obj.print(c1, c2);
+    return 0;
+}

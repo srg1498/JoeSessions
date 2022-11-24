@@ -1,0 +1,65 @@
+Q1 : Dictionary = {"bat", "ball", "cat", "dog", "good"}
+     word - cat (true)
+     word - monkey (false)
+	 
+	 search word in dictionary
+	 
+	 Constraints: No of words in dictionary = n
+                  Max length of word in dictionary = k 
+
+
+
+Method 1: - Brute force method
+   - insert all the words in the current dictionary in vector<string>
+   - Traverse whole vector
+   - Searching:
+       Time complexity -> o(n * k)       n - size of dict, k - maximum length of word
+   - insert operation:
+     o(1)
+   - delete operation:
+     n*k + n = o(n*k)
+	 
+   - maximum of searching, delete and insert = o(n*k)
+   - perform search operation t times = o(n*k*t)
+   - space = n strings in vectors 
+           = n*k characters		   
+   
+   
+   
+Method 2: - Sorting condition
+   - Preprcoess dictionary = sort this dictionary o(n*k*log(n));  (assuming dict is fixed)
+   - binary seach -> o(logn * k)
+   - insert operation:
+     {"ball", "bat", "bull", "cat", "dog", "good"}   
+	 o(n*k)
+   - delete operation:
+     logn*k + n = o(n)    n>>k
+	 
+   - maximum of searching, delete and insert = o(n*k)
+   - perform search operation t times = o(logn*k*t)
+   
+   
+
+
+Method 3: Trie   
+   - Trie :  26 characters <a-z>
+   - Node structure : char data, bool endOfWord, vector<Node*> ptrs(26)
+   - insert operation : o(k)
+   - search operation : o(k)
+   - delete operation : o(k)
+     method1 - just flip the boolean endOfWord
+	 method2 optimized - just flip the boolean endOfWord, also delete node if there are no dependencies
+   
+   - time complexity = delete one word = o(k)
+                     = insert one word = o(k)
+					 = search a word = o(k)
+					 
+   - space complexity = level one = 26 nodes
+                        level two = 26*26 nodes
+						level three = 26*26*26 nodes
+						            = (26^0 + 26^1 + .... 26^k) nodes
+
+   - Practical implementations:
+     1) contacts list feature
+     2) autocompletion feature	 
+

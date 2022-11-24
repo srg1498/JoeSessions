@@ -1,0 +1,67 @@
+1) postorder traversal	
+   leftsubtree rightsubtree root	 
+   
+   8 9 4 10 11 5 2 13 6 14 7 3 1
+   
+   preorder traversal
+   root leftsubtree rightsubtree
+   
+   1 2 4 8 9 5 10 11 3 6 13 7 14
+   
+   inorder traversal
+   leftsubtree root rightsubtree
+   8 4 9 2 10 5 11 1 6 13 3 14 7
+   
+   
+2) preorder traversal
+   - using two stacks (one for left and one for right)
+   - always finish left first and then move to right
+   
+
+4) advantages of post order
+   15 + 6 * 3 - 2
+   = 15 + 18 - 2
+   = 31  
+   
+   15 6 3 * + 2 - 
+   stack = {15}
+         = {15, 6}
+		 = {15, 6, 3}
+		 = {15, 18}
+		 = {33}
+		 = {33, 2}
+		 = {31}
+   
+   a + b - c
+   = ab+c-
+   
+   
+   
+Binary trees:-
+1) tree intro
+2) binary tree intro
+3) traversal 
+4) pre order iterative
+5) post order adavntage
+6) binary search trees
+   - basic one
+
+
+binary search tree 
+-> intro 
+-> inorder traversal gives sorted answer 
+-> balance binary search trees - height diff of left subtree and right subtree for each node should be at most 1 
+   we make height of tree as log(n)
+   avl tree - it takes care rotation
+-> normal one is simple
+
+   = 10, 5, 20
+   
+   bst:-
+   root = nullptr
+   i) root = 10
+   
+-> use of self balancing bst:-
+   1) search any element - o(height)
+   2) insert any element - o(height)
+   3) delete any element - o(height)

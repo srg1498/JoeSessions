@@ -1,0 +1,9 @@
+Topics discussed:-
+
+1) Ques
+2) heap introduction
+3) facts about heap
+4) formula discussion about height of tree
+5) insert, update and delete
+6) shift up and shift down
+7) time complexities of every operation 
