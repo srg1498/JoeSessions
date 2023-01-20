@@ -1,0 +1,97 @@
+- private members of base class can be accessed/updated by derived class using base class functions
+  
+  Counter:
+    private: count
+    public: cons, get_count(), ++operator overloaded()
+
+  Countdn:
+    private: 
+    public: cons, get_count(), ++operator overloaded()
+
+
+- use of protected keyword (required only if derived class is trying to access private members of base class)
+ 
+  Counter:
+    private: 
+    protected: count
+    public: cons, get_count(), ++operator overloaded()
+
+  Countdn:
+    private: 
+    protected: count
+    public: --operator overloading(), cons, get_count(), ++operator overloaded()
+
+
+-  operator
+   y = x++;
+     - copy value of x to y
+     - increment x
+
+   y = ++x;
+     - increment x;
+     - copy value of x to y
+
+
+-  calling specific parametrized constructor
+   delegating the base class constructor
+
+
+-  Two functions having same name 
+   function overriding
+   we used sro to handle the repition
+   we also used sro to call specific base class same name function
+
+
+-  multiple inheritance
+   object slicing
+   object of derived class can be treated as object of base class (not vice-versa)
+   eg
+     Shape: printShape()
+     Quad: printQuad()
+     Square: printShape(), printQuad(), printSquare()
+
+     Square sq = Square() -> printShape(), printQuad(), printSquare()
+     Shape sh = printShape()
+
+
+   object instantiation:
+     class Person
+
+     default:
+        Person p;
+        Person p = Person();
+
+     para:
+        Person p("joe");
+        Person p = Person("joe");
+
+     copy:
+        Person p1(p2);
+        Person p1 = Person(p2);
+
+     pointers:
+        default -> Person* p = new Person();
+        para    -> Person* p = new Person("joe");
+        copy    -> Person* p1 = new Person(p2);
+
+
+
+
+
+Summary:
+
+-> inheritance introduction
+   - what is inheritance
+   - base and derived class
+-> constructor and destructor calling order
+-> public, private and protected inheritance
+-> types of inheritance on the basis of levels
+
+
+-> access private members of default using base class functions
+-> protected usecase
+-> calling para cons 
+-> pre vs post operator
+-> function overriding
+-> multiple inheritance
+-> object slicing

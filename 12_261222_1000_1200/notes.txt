@@ -1,0 +1,84 @@
+- hierarchical inheritance
+  one base class is inherited by many derived classes
+  tree like structure
+
+  when we create derived class object in heap and store it in base class type pointer variable, so it only calls function
+  of base classes.
+
+  base class type pointers can point to derived class objects but vice versa is not possible.
+
+  now what we want is base class type pointer should be able to call derived class functions only. This is achieved using virtual 
+  keyword
+
+
+- vtables and vpointers
+
+
+  class Shape                                                                            Shape::sides()
+  - vpointer                                                                             Shape::perimeter()
+                                                                                         Triangle::sides()
+                                                                                         Triangle::perimeter()
+  class Triangle                                                                         Quadrilateral::sides()
+  - vpointer                                                                             Quadrilateral::perimeter()
+                                                                                         Pentagon::sides()
+                                                                                         Pentagon::perimeter()
+  class Quadriletral
+  - vpointer
+
+  
+  class Pentagon
+  - vpointer
+
+
+
+
+  vtable of class Shape
+  sides
+  perimeter
+
+  vtable of class Triangle
+  sides
+  perimeter
+
+
+  class size will increase because of virtual tables and pointers. This will only be created if we use virtual keyword.
+
+- virtual functions (normal ones) 
+  pure virtual functions (having no definition)
+
+  class having pure virtual functions is known as abstract class. Objects of abstract class can not be created.
+
+  Java: abstract class concept in c++ is known as interface in Java
+
+  in system design, whenever we use term like "create interface of this thing", by this we mean "create abstract class of this
+  thing in c++"
+
+  concrete class
+
+
+
+- old printers : print(doc), scan(doc)
+  modern printers : print(doc), scan(doc), 3dprint(doc), deprint(doc) 
+
+  ISearch interface
+  - searching(vector<int> arr, int num) = 0;
+
+  LinearSearch
+  - searching(vector<int> arr, int num){linear search algo};
+
+  BinarySearch
+  - searching(vector<int> arr, int num){}
+    
+
+
+- https://pabloariasal.github.io/2017/06/10/understanding-virtual-tables/
+
+
+
+- hierarchical inheritance
+- virtual functions
+- pure virtual functions
+- vtables and vpointers
+- abstract class and concrete class 
+- interface
+- some examples of interface (Shape, Printer, Search)

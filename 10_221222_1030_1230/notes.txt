@@ -1,0 +1,261 @@
+Inheritance:
+
+- Class A: -> Class B 
+  ability of a class to inherit properties of another class
+
+- A -> print(), add(), subtract()
+  B -> print(), add(), subtract(), multiply()
+
+- parent/base class = A
+  child/derived class = B
+
+- whenever derived class object is created, first it will call cons of parent class
+  and then it will call cons of child class
+  when object scope is finished, then first it will call derived class destructor
+  and then base class destructor
+  
+  class X{
+    public:
+        X(){
+            std::cout<<"X cons";
+        }
+  };
+
+  class Y : public X{
+    public:
+        Y(){
+            std::cout<<"Y cons";
+        }
+   };
+
+  class Z : public Y{
+    public:
+        Z(){
+            std::cout<<"Z cons";
+        }
+  };
+  
+
+- public, private and protected
+  1) we can only access public members of a class outside that class.
+     we can access any member of the class inside that class.
+  
+  2) private members never move, only public and protected members move
+     three types of inheritance on the basis of access modifiers:
+     public inheritance: 
+     makes public members of the base class public in the derived class, 
+     and the protected members of the base class remain protected in the derived class
+     eg. class B : public A -> publicMul, publicAdd, publicSub, publicPrint, protectedPrint
+
+
+    public inheritance ( class B : public A)
+
+    Base class A:
+    private - privatePrint()
+    protected - protectedPrint()
+    public - publicAdd(), publicSub, publicPrint()
+
+    Derived class B: (before inheritance)
+    private - 
+    protected - 
+    public - publicMul()
+
+    Derived class B: (after inheritance)
+    private - 
+    protected - protectedPrint()
+    public - publicMul(), publicAdd(), publicSub, publicPrint()
+
+ 3) protected inheritance:
+    makes the public and protected members of the base class 
+    protected in the derived class.
+   
+
+    protected inheritance ( class B : protected A)
+
+    Base class A:
+    private - privatePrint()
+    protected - protectedPrint()
+    public - publicAdd(), publicSub, publicPrint()
+
+    Derived class B: (before inheritance)
+    private - 
+    protected - 
+    public - publicMul()
+
+    Derived class B: (after inheritance)
+    private - 
+    protected - publicAdd(), publicSub, publicPrint(), protectedPrint()
+    public - publicMul()
+
+
+4) private inheritance:
+    makes the public and protected members of the base class 
+    private in the derived class.
+   
+
+    private inheritance ( class B : private A)
+
+    Base class A:
+    private - privatePrint()
+    protected - protectedPrint()
+    public - publicAdd(), publicSub, publicPrint()
+
+    Derived class B: (before inheritance)
+    private - 
+    protected - 
+    public - publicMul()
+
+    Derived class B: (after inheritance)
+    private - publicAdd(), publicSub, publicPrint(), protectedPrint()
+    protected - 
+    public - publicMul()
+
+
+
+- use of protected members
+  
+  In case of normal class, suppose there are private and public members. So outside the class we can only access public members. For private we have to use getters and setters.
+
+  Scenario: class Parent (protected and public)
+            class child - getters and setters for protected
+
+
+
+- There are 5 types of inheritance on the basis of levels:
+
+  1) single level inheritance
+
+     class A
+     class B : public A
+
+  2) multi level inheritance
+     class X
+     class Y : private X
+     class Z : protceted Y
+
+  3) multiple inheritance
+     
+     class A
+     class B
+
+     class C : public A, protected B
+
+  4) hierarchical inheritance  
+
+     class A
+     
+     class B : public A
+     class C : public A
+     class D : public A
+
+
+  5) hybrid inheritance
+     class A
+
+     class B : public A
+     class C : public A
+     
+     class D : public B, public C
+             
+
+
+
+
+
+
+
+Inheritance:
+1) inheritance introduction
+   - what is inheritance
+   - base and derived class
+
+2) constructor and destructor calling order
+
+3) public, private and protected inheritance
+
+4) types of inheritance on the basis of levels
+
+
+
+
+
+
+
+Inheritance Road Map:
+
+
+-> Inheritance basics
+   - intro
+   - calling order
+   - private, public and protected
+   - types on basis of levels
+
+-> multiple inheritance
+   - intro
+   - some issues with this
+
+-> multilevel
+   - intro 
+   - some issues with this
+
+-> hybrid
+   - intro
+   - diamond problem
+
+-> hierarchical inheritance
+   - intro
+   - virtual concept ( virtual tables and virtual pointers)
+   - virtual destructor
+   - interface and abstract classes
+   - dynamic polymorphism
+
+
+Polymorphism Road Map:
+
+-> Basics:
+   - intro
+   - static vs dynamic
+   - static 
+     - function overloading
+     - operator overloading
+   - dynamic polymorphism
+     - interface and abstract
+
+
+
+1st class - basics of inheritance
+
+2nd class - mutiple, multilevel and hybrid
+
+3rd class - hierarchical
+
+4th class - polymorphism
+
+
+
+done 21 wed - 1 class (basics of inheritance)
+done 24 sat - 1 class (multiple and some points)
+done 25 sun - 1 class 9-11 (hierarchical, virtual)
+26 mon - 1 class 9-11 (revise and resolve doubts)
+27 tues - 1 class 9-11 (polymorphism)
+ 
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

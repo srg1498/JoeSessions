@@ -1,0 +1,37 @@
+- Pointers
+  - These are the special variables which store the address of variable
+  - stack and heap memeory
+  - int* p = new int(5)  , p, *p, delete p
+  - type should be same 
+
+  - array handling using pointers
+  - int* arr2 = new int[5];
+  - arithmetics on pointers
+  - delete[] arr2
+  
+  - class and objects handling using pointers
+  - When we create objects in stack, we can access members using dot operator
+    When we create objects in heap, we cant access using dot. We have to use arrow operator
+  - "this pointer" - it is a special pointer variable which is having address of the own object.
+    eg. obj10 is of type Base
+        obj10 -> b=5, c=7, print(), this=&obj10 (this - it is of type Base*)
+        obj20 -> b=5, c=7, print(), this=&obj20
+    increases the readibility of our code
+
+  - smart pointers : to reduce the manual effort of freeing the memory
+ 
+
+
+
+- Virtual Concept
+  - Function overiding : when derived class is having same name functions, it will call its own one
+    use sro to call the base one
+  - derived class objects can be stored in base class pointers as well
+    object slicing
+  - virtual keyword usecase
+    pure virtual functions vs virtual functions
+    class which is having only virtual functions is virtual class, we can create objects of this class
+    class which is having at least one pure virtual function is abstract class, we cant create object of this class
+    class which inherits abstract class is known as concrete class
+    abstract class are also known as interface
+    implement this interface - define pure virtual functions of abstract class/interface in concrete class
